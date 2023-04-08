@@ -16,7 +16,8 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import Chats from "./components/chats/Chats.jsx"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -31,6 +32,7 @@ function App() {
           <Navbar />
           <div style={{ display: "flex" }}>
             <LeftBar />
+            
             <div style={{ flex: 6 }}>
               <Outlet />
             </div>
@@ -66,11 +68,16 @@ function App() {
           path: "/profile/:id",
           element: <Profile />,
         },
+       
       ],
     },
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/chats",
+      element: <Chats />,
     },
     {
       path: "/register",
