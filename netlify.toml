@@ -4,3 +4,4 @@
   status = 200
 [build]
   base = "client"
+  base = "../api"
