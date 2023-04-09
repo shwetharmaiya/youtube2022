@@ -3,5 +3,5 @@
   to = "/index.html"
   status = 200
 
-[[base]]
+[[build]]
   base = "client"
