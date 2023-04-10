@@ -2,6 +2,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+<<<<<<< HEAD
 
 [[build]]
+=======
+[build]
+>>>>>>> 95970d2cc068de6962105fb67795f314163fcf31
   base = "client"
