@@ -16,8 +16,13 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Chats from "./components/chats/Chats.jsx"
+//import Chats from "./components/chats/Chats"
+import ChatPage from "./components/chat/ChatPage"
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import socketIO from 'socket.io-client';
+const socket = socketIO.connect('http://localhost:4000');
+
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -76,8 +81,8 @@ function App() {
       element: <Login />,
     },
     {
-      path: "/chats",
-      element: <Chats />,
+      path: "/chat",
+      element: <ChatPage socket={socket} />,
     },
     {
       path: "/register",
