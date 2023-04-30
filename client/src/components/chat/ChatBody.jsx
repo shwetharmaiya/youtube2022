@@ -1,12 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
-const ChatBody = ({ messages }) => {
+const ChatBody = ({ messages, socket }) => {
   const navigate = useNavigate();
-  const { currentUser } = useContext(AuthContext);
- localStorage.setItem('user', currentUser.name);
 
     const handleLeaveChat = () => {
       localStorage.removeItem('user');
@@ -17,7 +15,7 @@ const ChatBody = ({ messages }) => {
     return (
       <>
         <header className="chat__mainHeader">
-          <p>Hangout with Colleagues</p>
+          <p>StudentsParTea</p>
           <button className="leaveChat__btn" onClick={handleLeaveChat}>
             LEAVE CHAT
           </button>

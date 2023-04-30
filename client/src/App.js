@@ -17,6 +17,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 //import Chats from "./components/chats/Chats"
+import ChatHome from "./components/chat/Home"
 import ChatPage from "./components/chat/ChatPage"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
@@ -82,11 +83,15 @@ function App() {
     },
     {
       path: "/chat",
-      element: <ChatPage socket={socket} />,
+      element: <ChatHome socket={socket} />,
     },
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/chat/chatPage",
+      element: <ChatPage socket={socket} />,
     },
   ]);
 

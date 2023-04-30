@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
-const ChatFooter = ({ socket }) => {
+const ChatFooter = ({ socket , currentUser}) => {
   const [message, setMessage] = useState('');
-  const { currentUser } = useContext(AuthContext);
+  //const { currentUser } = useContext(AuthContext);
   const handleSendMessage = (e) => {
     e.preventDefault();
-    if (message.trim() && currentUser) {
+    //let currentUser = localStorage.getItem('user');
+      
+    if (message.trim()  ) {
       socket.emit('message', {
-        text: message,  
-        name: currentUser,
+        text: message,
+        name: localStorage.getItem('user'),
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
       });

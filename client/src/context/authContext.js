@@ -14,12 +14,12 @@ export const AuthContextProvider = ({ children }) => {
       withCredentials: true,
     });
 
-    setCurrentUser(res.data)
+    setCurrentUser(res.data.username)
     }
   };
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    localStorage.setItem("user", currentUser);
   }, [currentUser]);
 
   return (
